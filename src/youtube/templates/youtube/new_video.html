@@ -1,0 +1,30 @@
+<div class=" bg-white rounded shadow-base">
+<div class="card pd-20 pd-xs-30 shadow-base bd-0">
+<h3>Nuevo Video</h3><br><br>
+
+  <form class="form-singin" method="POST">{% csrf_token %}
+{% for field in form %}
+      
+      <div class="form-control col-md-7 lg">
+      <p style="font-size:18px;margin:0px; "><strong>{{field.label_tag}}</strong></p>
+      <label  id="focusedInput">{{field}}</label><br>
+      
+      </div>
+      <p>    
+        {% if field.help_text%}
+          <small style="color: gray;">{{fiedl.help_text}}</small>
+        {% endif %}
+
+        {% for error in field.errors %}
+        <small style="color: red;">{{error}}</small>
+        {% endfor %}
+      </p>
+      
+{% endfor  %}
+    <button type="submit" class="btn btn-warning mg-r-10"><a>Registrar</a></button>
+    
+    <div class="row">    
+    <a href="{{request.META.HTTP_REFERER}}" style="margin-left:20px; margin-bottom: 20px;margin-top: 0px;"><button type="submit" style="float:left;"class="btn btn-info">Volver</button></a>    </div>  
+    </form>
+</div>
+</div>
