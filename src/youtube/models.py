@@ -7,7 +7,7 @@ class Video(models.Model):
     description = models.TextField(max_length=300)
     path = models.CharField(max_length=60)
     datetime = models.DateTimeField(blank=False, null=False)
-    user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    
 
     def __str__(self):
         return self.title
@@ -16,5 +16,4 @@ class Video(models.Model):
 class Comment(models.Model):
     text = models.TextField(max_length=300)
     datetime = models.DateTimeField(blank=False, null=False)
-    user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     video = models.ForeignKey(Video, on_delete=models.CASCADE)
