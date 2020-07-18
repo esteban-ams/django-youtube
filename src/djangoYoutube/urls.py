@@ -20,6 +20,7 @@ from youtube.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('index/', index, name='index'),
     path('new_video/', new_video, name='newvideo'),
 
 ]
