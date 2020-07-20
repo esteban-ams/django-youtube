@@ -19,11 +19,9 @@ def registration_view(request):
 		context['registration_form'] = form
 	return render(request, 'account/register.html', context)
 
-
 def logout_view(request):
 	logout(request)
 	return redirect('/')
-
 
 def login_view(request):
 
@@ -51,7 +49,6 @@ def login_view(request):
 
 	# print(form)
 	return render(request, "account/login.html", context)
-
 
 def account_view(request):
 

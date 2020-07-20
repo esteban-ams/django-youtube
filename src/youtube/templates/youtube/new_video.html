@@ -2,19 +2,18 @@
 
 {% block content %}
 
-
-<div class=" bg-white rounded shadow-base">
-<div class="card pd-20 pd-xs-30 shadow-base bd-0">
 <h3>Nuevo Video</h3><br><br>
-
+  
   <form class="form-singin" method="POST">{% csrf_token %}
+  <div>
+   {{form.as_table}}
+  </div>
+
 {% for field in form %}
       
-      <div class="form-control col-md-7 lg">
-      <p style="font-size:18px;margin:0px; "><strong>{{field.label_tag}}</strong></p>
-      <label  id="focusedInput">{{field}}</label><br>
+      {% comment %} <p style="font-size:18px;margin:0px; "><strong>{{field.label_tag}}</strong></p>
+      <label  id="focusedInput">{{field}}</label><br> {% endcomment %}
       
-      </div>
       <p>    
         {% if field.help_text%}
           <small style="color: gray;">{{fiedl.help_text}}</small>
@@ -26,12 +25,10 @@
       </p>
       
 {% endfor  %}
-    <button type="submit" class="save btn btn-default"><a>Registrar</a></button>
+    <button type="submit" class="save btn btn-info"><a>Registrar</a></button>
     
     <div class="row">    
-    <a href="{{request.META.HTTP_REFERER}}" style="margin-left:20px; margin-bottom: 20px;margin-top: 0px;"><button type="submit" style="float:left;"class="btn btn-info">Volver</button></a>    </div>  
+    <a href="{{request.META.HTTP_REFERER}}" style="margin-left:20px; margin-bottom: 20px;margin-top: 0px;"><button type="submit" style="float:left;"class="btn btn-danger">Volver</button></a>    </div>  
     </form>
-</div>
-</div>
 
 {% endblock content %}
