@@ -2,11 +2,11 @@
 
 {% block content %}
 
-<h3>Nuevo Video</h3><br><br>
+<h3>Sube tu Video! </h3><br><br>
   
   <form class="form-singin" method="POST">{% csrf_token %}
   <div>
-   {{form.as_table}}
+   {{form.as_p}}
   </div>
 
 {% for field in form %}
