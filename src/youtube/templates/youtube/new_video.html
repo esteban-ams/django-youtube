@@ -4,7 +4,7 @@
 
 <h3>Sube tu Video! </h3><br><br>
   
-  <form class="form-singin" method="POST">{% csrf_token %}
+  <form class="form-singin" enctype="multipart/form-data" method="POST">{% csrf_token %}
   <div>
    {{form.as_p}}
   </div>

@@ -16,7 +16,7 @@ def new_video(request):
     context = {}
 
     if request.method == 'POST':
-        form = NewVideo_Form(request.POST)
+        form = NewVideo_Form(request.POST, request.FILES)
         if form.is_valid():
             form.save()
     else:
