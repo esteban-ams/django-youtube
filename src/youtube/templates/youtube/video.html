@@ -1,16 +1,16 @@
 {% extends 'base.html' %}
-{% load embed_video_tags %}
 
  {% block content %}
 
-{% video video.file as my_video %}
-    URL: {{ my_video.url }}
-    Thumbnail: {{ my_video.thumbnail }}
-    Backend: {{ my_video.backend }}
+<h2>{{ video.title }}</h2>
+
+<video width="320" height="240" controls>
+    <source src="{{ video.file }}" type="video/mp4">
+  Your browser does not support the video tag.
+  </video>
+<p>{{ video.description }}</p>
 <br><br>
-
-
-<h3>Comentarios </h3>
+<h3>Comentarios</h3>
 
 {% if request.user.is_authenticated %}
 <form method="POST" class="form-singin"> {% csrf_token %}
