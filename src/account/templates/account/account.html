@@ -37,18 +37,16 @@
 </style>
 
 
-<form class="form-signin" method="post">{% csrf_token %}
+  <h1 class="h3 mb-3 font-weight-normal"> Tu Cuenta </h1>
+  <img src="{{request.user.profile_picture.url}}" >
+  <form class="form-singin" enctype="multipart/form-data" method="POST">{% csrf_token %}
+    <div>
+     {{account_form.as_p}}
+    </div>
 
-  <h1 class="h3 mb-3 font-weight-normal">Account</h1>
-
-  <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus value={{account_form.initial.email}}>
-  
-  <input type="text" name="username" id="inputUsername" class="form-control" placeholder="Username" required
-  value="{{account_form.initial.username}}">
-
-  <img src="{{account_form.initial.profile_picture.url}}">
 
   {% for field in account_form %}
+
       <p>
         {% for error in field.errors %}
           <p style="color: red">{{ error }}</p>
