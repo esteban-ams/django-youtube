@@ -1,7 +1,7 @@
 				<!-- Header -->
 					<header id="header">
 					{% if request.user.is_authenticated %}
-						<h1><a href="index.html"> Hola, {{request.user.username}} </a></h1>
+						<h1><a> Hola, {{request.user.username}} </a></h1>
 						<nav class="links">
 							<ul>
 								<li><a href="{% url 'index' %}"> Principal </a></li>

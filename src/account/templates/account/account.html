@@ -38,7 +38,8 @@
 
 
   <h1 class="h3 mb-3 font-weight-normal"> Tu Cuenta </h1>
-  <img src="{{request.user.profile_picture.url}}" >
+  <label for=""> Foto de Perfil </label>
+  <img src="{{request.user.profile_picture.url}}" width="150" height="130">
   <form class="form-singin" enctype="multipart/form-data" method="POST">{% csrf_token %}
     <div>
      {{account_form.as_p}}

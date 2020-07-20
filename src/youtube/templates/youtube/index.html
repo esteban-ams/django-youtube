@@ -5,21 +5,22 @@
 
 <h3>Listado de Videos</h3><br><br>
     
-    {% for video in videos %}
-   <section>
-							<div class="mini-posts">
-								<!-- Mini Post -->
-									<article class="mini-post">
-										<header>
-											<h3><a href="{% url 'video' video.pk %}"> {{video.title}} </a></h3>
-											<time class="published"> {{video.datetime}} </time>
-											<a href="#" class="author"><img src="{{user.profile_picture}}" alt="" /></a>
-										</header>
-										<a href="single.html" class="image"><img src="images/pic04.jpg" alt="" /></a>
-									</article>
-						</section>
-    {% endfor %}
-</div>
-</div>
+{% for video in videos %}
+	<section>
+		<div class="mini-posts">
+			<!-- Mini Post -->
+				<article class="mini-post">
+					<header>
+						<h3><a href="{% url 'video' video.pk %}"> {{video.title}} </a></h3>
+						<time class="published"> {{video.datetime}} </time>
+						<a  class="author"><img src="{{request.user.profile_picture.url}}" width="50" height="40" /></a>
+					</header>
+					<a href="single.html" class="image"><img src="images/pic04.jpg" alt="" /></a>
+				</article>
+		</div>
+	</section>
+{% endfor %}
+
+
 
 {% endblock content %}
