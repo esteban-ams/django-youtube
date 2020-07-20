@@ -2,14 +2,22 @@
 
 {% block content %}
 
-<div class=" bg-white rounded shadow-base">
-<div class="card pd-20 pd-xs-30 shadow-base bd-0">
-<h3>Listado de Video</h3><br><br>
+
+<h3>Listado de Videos</h3><br><br>
     
     {% for video in videos %}
-    <div>
-        <a href="{% url 'video' video.pk %}"> {{video}} </a>
-    </div>
+   <section>
+							<div class="mini-posts">
+								<!-- Mini Post -->
+									<article class="mini-post">
+										<header>
+											<h3><a href="{% url 'video' video.pk %}"> {{video.title}} </a></h3>
+											<time class="published"> {{video.datetime}} </time>
+											<a href="#" class="author"><img src="{{user.profile_picture}}" alt="" /></a>
+										</header>
+										<a href="single.html" class="image"><img src="images/pic04.jpg" alt="" /></a>
+									</article>
+						</section>
     {% endfor %}
 </div>
 </div>

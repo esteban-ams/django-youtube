@@ -1,35 +1,111 @@
-<!DOCTYPE html>
-<html lang=en>
+{% load static %}
+{% csrf_token %}
 
-<head>
-	<!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	
-</head>
+<!DOCTYPE HTML>
+<!--
+	Future Imperfect by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title> {% block title %}{% endblock title %} </title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'admin/css/main.css' %}" />
+	</head>
+	<body class="is-preload">
+		
+		{% include 'snippets/header.html' %}
 
-<body>
+		<!-- Wrapper -->
+			<div id="wrapper">
 
-{% include 'snippets/header.html' %}
+				
 
-<!-- Body -->
-<style type="text/css">
-	.main{
-		min-height: 100vh;
-		height: 100%;
-	}
-</style>
-<div class="main">
-	{% block content %}
+				<!-- Menu -->
+					<section id="menu">
 
-	{% endblock content %}
-</div>
-<!-- End Body -->
+						<!-- Search -->
+							<section>
+								<form class="search" method="get" action="#">
+									<input type="text" name="query" placeholder="Search" />
+								</form>
+							</section>
 
-{% include 'snippets/footer.html' %}
+						<!-- Links -->
+							<section>
+								<ul class="links">
+									<li>
+										<a href="#">
+											<h3>Lorem ipsum</h3>
+											<p>Feugiat tempus veroeros dolor</p>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<h3>Dolor sit amet</h3>
+											<p>Sed vitae justo condimentum</p>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<h3>Feugiat veroeros</h3>
+											<p>Phasellus sed ultricies mi congue</p>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<h3>Etiam sed consequat</h3>
+											<p>Porta lectus amet ultricies</p>
+										</a>
+									</li>
+								</ul>
+							</section>
 
-</body>
+						<!-- Actions -->
+							<section>
+								<ul class="actions stacked">
+									<li><a href="#" class="button large fit">Log In</a></li>
+								</ul>
+							</section>
+
+					</section>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Intro -->
+						{% if request.user.is_authenticated %}
+						<section id="intro">
+							<a href="#" class="logo"><img src="images/logo.jpg" alt="" /></a>
+							<header>
+								<h2> Bienvenido a tu Portal de Videos ! </h2>
+								<p> Una plataforma especial y personalizada para ti y tus videos. </p>
+							</header>
+						</section>
+						{% endif %}
+
+						{% block content %}
+
+						{% endblock content %}
+						
+
+		
+					</div>
 
 
+			</div>
+
+			
+		{% include 'snippets/footer.html' %}
+
+		<!-- Scripts -->
+			<script src="{% static 'admin/js/jquery.min.js' %} "></script>
+			<script src="{% static 'admin/js/browser.min.js' %} "></script>
+			<script src="{% static 'admin/js/breakpoints.min.js' %} "></script>
+			<script src="{% static 'admin/js/util.js' %} "></script>
+			<script src="{% static 'admin/js/main.js' %} "></script>
+
+	</body>
 </html>

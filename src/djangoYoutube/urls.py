@@ -31,7 +31,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
 #platform urls for daily use
-    path('index/', index, name='index'),
+    path('', index, name='index'),
     path('new_video/', new_video, name='newvideo'),
     path('video/<pk>/', video,  name='video')
 

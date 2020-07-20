@@ -1,39 +1,36 @@
-<style type="text/css">
-	@media (min-width: 768px) {
-	  html {
-	    font-size: 16px;
-	  }
-	}
-
-	.pricing-header {
-	  max-width: 700px;
-	}
-
-	.card-deck .card {
-	  min-width: 220px;
-	}
-
-</style>
-
-<!-- Header -->
-<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-  <h5 class="my-0 mr-md-auto font-weight-normal">
-  	{% if request.user.is_authenticated %}
-  		<p>Hello, {{request.user.username}}</p>
-  	{% endif %}
-  </h5>
-  <nav class="my-2 my-md-0 mr-md-3">
-  	{% if request.user.is_authenticated %}
-	    <a class="btn btn-outline-primary" href="{% url 'newvideo' %}"> Nuevo Video </a>
-	  	<a class="p-2 text-dark" href="{% url 'index' %}"> Principal </a>
-	    <a class="p-2 text-dark" href="{% url 'account' %}"> Cuenta </a>
-	    <a class="p-2 text-dark" href="{% url 'logout' %}"> Cerrar Sesión </a>
-	{% else %}
-		<a class="p-2 text-dark" href="{% url 'index' %}"> Principal </a>
-	    <a class="p-2 text-dark" href="{% url 'login' %}"> Entrar </a>
-	    <a class="btn btn-outline-primary" href="{% url 'registration' %}"> Registrate </a>
-	{% endif %}	
-    
-  </nav>
-</div>
-
+				<!-- Header -->
+					<header id="header">
+					{% if request.user.is_authenticated %}
+						<h1><a href="index.html"> Hola, {{request.user.username}} </a></h1>
+						<nav class="links">
+							<ul>
+								<li><a href="{% url 'index' %}"> Principal </a></li>
+								<li><a href="{% url 'account' %}"> Cuenta </a></li>
+								<li><a href="{% url 'newvideo' %}"> Nuevo Video </a></li>
+							</ul>
+						</nav>
+					{% else %}
+						<h1><a href="index.html"> Portal de Videos </a></h1>
+						<nav class="links">
+							<ul>
+								<li><a href="{% url 'index' %}"> Principal </a></li>
+								<li><a href="{% url 'login' %}"> Acceder </a></li>
+								<li><a href="{% url 'registration' %}"> Registrate </a></li>
+							</ul>
+						</nav>
+					{% endif %}
+					
+						<nav class="main">
+							<ul>
+								<li class="search">
+									<a class="fa-search" href="#search">Search</a>
+									<form id="search" method="get" action="#">
+										<input type="text" name="query" placeholder="Search" />
+									</form>
+								</li>
+								<li class="menu">
+									<a class="fa-bars" href="#menu">Menu</a>
+								</li>
+							</ul>
+						</nav>
+					</header>
