@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .forms import NewVideo_Form
+from .forms import *
 from .models import *
 
 # Create your views here.
@@ -23,3 +23,27 @@ def new_video(request):
         form = NewVideo_Form()
     context['form'] = form
     return render(request, 'youtube/new_video.html', context)
+
+def video(request, pk):
+
+    
+    video = Video.objects.get(pk=pk)
+    comments = Comment.objects.filter(video=video)
+
+    if request.method == 'POST':
+        form = Coment_Form(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.author = request.user.username
+            comment.video = video
+            comment.save()
+    else:
+        form = Coment_Form()
+    
+    context = {
+        'video' : video,
+        'form' : form,
+        'comments' : comments,
+    }
+
+    return render(request, 'youtube/video.html', context)

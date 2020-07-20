@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load embed_video_tags %}
+
+ {% block content %}
+
+{% video video.file as my_video %}
+    URL: {{ my_video.url }}
+    Thumbnail: {{ my_video.thumbnail }}
+    Backend: {{ my_video.backend }}
+<br><br>
+
+
+<h3>Comentarios </h3>
+
+{% if request.user.is_authenticated %}
+<form method="POST" class="form-singin"> {% csrf_token %}
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary"> Comentar ! </button>
+</form>
+{% endif %}
+
+{% for comment in comments %}
+<p>
+{{ comment.author }} posted on: {{ comment.datetime }} <br>
+{{ comment.text }}
+</p>
+{% endfor %}
+
+ {% endblock content %}

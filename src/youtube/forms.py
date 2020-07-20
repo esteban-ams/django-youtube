@@ -10,5 +10,5 @@ class NewVideo_Form(forms.ModelForm):
 class Coment_Form(forms.ModelForm):
     class Meta:
         model  = Comment
-        fields = '__all__'
+        fields = ['text']
     

@@ -8,7 +8,7 @@
     
     {% for video in videos %}
     <div>
-        <a href=""> {{video}} </a>
+        <a href="{% url 'video' video.pk %}"> {{video}} </a>
     </div>
     {% endfor %}
 </div>
