@@ -71,7 +71,7 @@ def account_view(request):
 			initial={
 					"email": request.user.email, 
 					"username": request.user.username,
-					"profile_picture": request.user.profile_picture,
+					# "profile_picture": request.user.profile_picture,
 				}
 			)
 

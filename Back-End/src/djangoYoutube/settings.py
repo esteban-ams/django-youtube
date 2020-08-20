@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'youtube',
     'account',
-    'embed_video',
     'debug_toolbar',
 ]
 
