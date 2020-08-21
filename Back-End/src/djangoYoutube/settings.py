@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'youtube',
     'account',
     'debug_toolbar',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
