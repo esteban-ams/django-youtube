@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from django.conf.urls.static import static
 from youtube.views import *
 from account.views import *
@@ -33,8 +33,10 @@ urlpatterns = [
 #platform urls for daily use
     path('', index, name='index'),
     path('new_video/', new_video, name='newvideo'),
-    path('video/<pk>/', video,  name='video')
+    path('video/<pk>/', video,  name='video'),
 
+# REST APIs
+    path('', include('youtube.api.urls')),
 ]
 
 
