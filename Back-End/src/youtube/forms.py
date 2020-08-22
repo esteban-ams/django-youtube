@@ -5,7 +5,7 @@ from .models import *
 class NewVideo_Form(forms.ModelForm):
     class Meta:
         model = Video
-        fields = ['title', 'description', 'file']
+        fields = ['title', 'description']
 
 class Coment_Form(forms.ModelForm):
     class Meta:

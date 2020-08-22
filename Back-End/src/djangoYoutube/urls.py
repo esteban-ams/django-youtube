@@ -17,19 +17,10 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from youtube.views import *
-from account.views import *
 from django.conf import settings
 
 urlpatterns = [
-
-# Account urls
-    path('registration/', registration_view , name='registration'),
-    path('login/', login_view , name='login'),
-    path('logout/', logout_view , name='logout'),
-    path('account/', account_view , name='account'),
-    
     path('admin/', admin.site.urls),
-
 #platform urls for daily use
     path('', index, name='index'),
     path('new_video/', new_video, name='newvideo'),
@@ -37,6 +28,7 @@ urlpatterns = [
 
 # REST APIs
     path('', include('youtube.api.urls')),
+    path('', include('account.api.urls'))
 ]
 
 
