@@ -12,15 +12,9 @@ class Video(models.Model):
     def __str__(self):
         return self.title
     
-    def perform_create(self, serializer):
-        serializer.save(owner=self.request.user)
-    
 
 class Comment(models.Model):
     text = models.TextField(max_length=300)
     datetime = models.DateTimeField(auto_now=True, blank=True, null=False)
     video = models.ForeignKey(Video, on_delete=models.CASCADE)
     owner = models.ForeignKey('auth.User', related_name='comment', on_delete=models.CASCADE)
-       
-    def perform_create(self, serializer):
-        serializer.save(owner=self.request.user)

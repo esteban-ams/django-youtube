@@ -6,10 +6,10 @@ class VideoSerlializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
     class Meta:
         model = Video
-        fields = '__all__'
+        fields = ['id', 'title', 'description', 'owner']
 
 class CommentSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
     class Meta: 
         model = Comment
-        fields = '__all__'
+        fields = ['id', 'owner']
