@@ -1,6 +1,8 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import HelloWorld from "./Components/HelloWorld";
+import CounterExample from "./Components/CounterExampler";
 
 function App() {
   return (
@@ -10,6 +12,9 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
+        <div>
+          <HelloWorld name="barry" laputa="que lo pario" />
+        </div>
         <a
           className="App-link"
           href="https://reactjs.org"
