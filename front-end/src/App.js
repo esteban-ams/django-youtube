@@ -1,7 +1,7 @@
 import React from "react";
 import "./tailwind.css";
 import HelloWorld from "./Components/HelloWorld";
-// import CounterExample from "./Components/CounterExampler";
+import Footer from "./Components/Footer";
 import Header from "./Components/Header";
 
 function App() {
@@ -10,6 +10,8 @@ function App() {
       <Header appName="my App" />
 
       <HelloWorld name="barry" laputa="que lo pario" />
+
+      <Footer />
     </div>
   );
 }
