@@ -32,7 +32,8 @@ urlpatterns = [
 
     # REST APIs
     path('', include('youtube.api.urls')),
-    path('', include('account.api.urls'))
+    path('', include('account.api.urls')),
+    path('', include('account.urls')),
 ]
 
 urlpatterns += [
