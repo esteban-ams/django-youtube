@@ -18,28 +18,24 @@ from django.urls import path, include
 from django.conf.urls import include
 from django.conf.urls.static import static
 from youtube.views import *
-from account.views import registerForm
 from django.conf import settings
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path("admin/", admin.site.urls),
     # Account urls
-    path('register/', registerForm, name="register"),
+    path("", include("account.urls")),
     # platform urls for daily use
-    path('', index, name='index'),
-    path('new_video/', new_video, name='newvideo'),
-    path('video/<pk>/', video,  name='video'),
-
+    path("", index, name="index"),
+    path("new_video/", new_video, name="newvideo"),
+    path("video/<pk>/", video, name="video"),
     # REST APIs
-    path('', include('youtube.api.urls')),
-    path('', include('account.api.urls')),
-    path('', include('account.urls')),
+    path("", include("youtube.api.urls")),
+    path("", include("account.api.urls")),
 ]
 
 urlpatterns += [
-    path('api-auth/', include('rest_framework.urls')),
+    path("api-auth/", include("rest_framework.urls")),
 ]
 
 if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL,
-                          document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,36 +1,36 @@
-				<!-- Header -->
-					<header id="header">
-					{% if request.user.is_authenticated %}
-						<h1><a> Hola, {{request.user.username}} </a></h1>
-						<nav class="links">
-							<ul>
-								<li><a href="{% url 'index' %}"> Principal </a></li>
-								<li><a href="{% url 'account' %}"> Cuenta </a></li>
-								<li><a href="{% url 'newvideo' %}"> Nuevo Video </a></li>
-							</ul>
-						</nav>
-					{% else %}
-						<h1><a href="index.html"> Portal de Videos </a></h1>
-						<nav class="links">
-							<ul>
-								<li><a href="{% url 'index' %}"> Principal </a></li>
-								<li><a href="{% url 'login' %}"> Acceder </a></li>
-								<li><a href="{% url 'registration' %}"> Registrate </a></li>
-							</ul>
-						</nav>
-					{% endif %}
-					
-						<nav class="main">
-							<ul>
-								<li class="search">
-									<a class="fa-search" href="#search">Search</a>
-									<form id="search" method="get" action="#">
-										<input type="text" name="query" placeholder="Search" />
-									</form>
-								</li>
-								<li class="menu">
-									<a class="fa-bars" href="#menu">Menu</a>
-								</li>
-							</ul>
-						</nav>
-					</header>
+<!-- Header -->
+<header id="header">
+  {% if request.user.is_authenticated %}
+  <h1><a> Hola, {{request.user.username}} </a></h1>
+  <nav class="links">
+    <ul>
+      <li><a href="{% url 'index' %}"> Principal </a></li>
+      <li><a href=""> Cuenta </a></li>
+      <li><a href="{% url 'newvideo' %}"> Nuevo Video </a></li>
+    </ul>
+  </nav>
+  {% else %}
+  <h1><a href="{% url 'index' %}"> Portal de Videos </a></h1>
+  <nav class="links">
+    <ul>
+      <li><a href="{% url 'index' %}"> Principal </a></li>
+      <li><a href=""> Acceder </a></li>
+      <li><a href="{% url 'register' %}"> Registrate </a></li>
+    </ul>
+  </nav>
+  {% endif %}
+
+  <nav class="main">
+    <ul>
+      <li class="search">
+        <a class="fa-search" href="#search">Search</a>
+        <form id="search" method="get" action="#">
+          <input type="text" name="query" placeholder="Search" />
+        </form>
+      </li>
+      <li class="menu">
+        <a class="fa-bars" href="#menu">Menu</a>
+      </li>
+    </ul>
+  </nav>
+</header>
